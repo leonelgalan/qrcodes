@@ -9,8 +9,8 @@ DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/db/devel
 
 class Link
   include DataMapper::Resource
-  property :short_url, String, :key => true
-  property :url, String
+  property :short_url, String, key: true
+  property :url, String, length: 256
   property :title, String
 end
 
@@ -48,10 +48,10 @@ get '/' do
 end
 
 get '/generate' do
-  @qr_code_url = "/qr?url=#{params[:url]}&color=#{params[:color]}&title=#{params[:title]}"
   @link = Link.new short_url: gen_short_url, url: params[:url], title: params[:title]
 
   if @link.save
+    @qr_code_url = "/qr?url=http://acornco.de/#{@link.short_url}&color=#{params[:color]}&title=#{params[:title]}"
     erb :generate
   else
     status 400
