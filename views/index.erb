@@ -1,6 +1,6 @@
 	<div>
 	<!-- Bookmarklet code found in http://wikarski.com/cms/content/generate-qr-code-your-web-page-links -->
-		<p>Drag this link to your Bookmark Bar: <a href="javascript:void((i=(document.links.length>300)?300:document.links.length-1));void((j='http://acornco.de/index?url='+escape(location.href)));do{k=String(document.links[i]);(k.indexOf('.jad')>0)?j=j+'\&c[]'+'='+escape(document.links[i]):k='';}while(i--);void(window.open(j,'QR Code','width=330,height=350,top=0,left=0,location=0,resizable=yes'));">QR Code</a></p>
+		<p>Drag this link to your Bookmark Bar: <a href="javascript:void((i=(document.links.length>300)?300:document.links.length-1));void((j='http://acornco.de/?url='+escape(location.href)));do{k=String(document.links[i]);(k.indexOf('.jad')>0)?j=j+'\&c[]'+'='+escape(document.links[i]):k='';}while(i--);void(window.open(j,'QR Code','width=330,height=350,top=0,left=0,location=0,resizable=yes'));">QR Code</a></p>
 	</div>
 	<div>
 		<form action="/generate" method="get">
