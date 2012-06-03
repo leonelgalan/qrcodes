@@ -1,7 +1,7 @@
 require 'sinatra'
 
 get '/' do
-  'Visit /generate?url= to generate a QR Code for the specified URL'
+  erb :index
 end
 
 get '/generate' do
