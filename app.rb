@@ -3,6 +3,18 @@ require 'barby'
 require 'barby/barcode/qr_code'
 require 'barby/outputter/png_outputter'
 
+class String
+  def titleize
+    split(/(\W)/).map(&:capitalize).join
+  end
+end
+
+helpers do
+  def checkbox(name, value, label=value.titleize)
+    "<input type=\"radio\" name=\"#{name}\" id=\"#{name}_#{value}\" value=\"#{value}\" /> <label for=\"#{name}_#{value}\">#{label}</label><br />"
+  end
+end
+
 get '/' do
   erb :index
 end
