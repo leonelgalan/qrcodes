@@ -1,0 +1,5 @@
+rvm use --create --install 1.9.3-p194@qrcodes >/dev/null 2>&1
+
+if ! command -v bundle ; then
+  gem install bundler >/dev/null 2>&1
+fi
