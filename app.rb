@@ -81,7 +81,7 @@ get '/qr' do
   }
   
   src = Magick::Image.read("tmp.png").first
-  dst = Magick::Image.read("images/blue.png").first
+  dst = Magick::Image.read("images/#{params[:color]}.png").first
   result = dst.composite(src, Magick::CenterGravity, Magick::OverCompositeOp)
   
   gc = Magick::Draw.new
